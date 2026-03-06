@@ -7,13 +7,13 @@ FieldDetailsIntern IDIN226066402NameSannidhyaAssignmentFastAPI — Day 1 Practic
 📂 Project Structure
 IN226066402_FASTAPI/
 └── ASSIGNMENT 1/
-    ├── main.py
+    ├── BONUS_OUTPUT.png
     ├── Q1_OUTPUT.png
     ├── Q2_OUTPUT.png
     ├── Q3_OUTPUT.png
     ├── Q4_OUTPUT.png
     ├── Q5_OUTPUT.png
-    └── BONUS_OUTPUT.png
+    └── main.py
 
 🚀 How to Run
 1. Install dependencies
