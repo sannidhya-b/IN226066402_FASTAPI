@@ -1,13 +1,14 @@
 # 🛒 FastAPI E-Commerce Store API
 ### Feb Internship 2026 — FastAPI Assignment
 
+---
 
 ## 👩‍💻 Intern Details
 | Field | Details |
 |-------|---------|
 | **Intern ID** | IN226066402 |
 | **Name** | Sannidhya |
-| **Assignment** | FastAPI — Day 1, Day 2 & Day 4 Practice Tasks |
+| **Assignment** | FastAPI — Day 1, Day 2, Day 4 & Day 5 Practice Tasks |
 
 ---
 
@@ -32,28 +33,51 @@ IN226066402_FASTAPI/
 │   ├── Q4_OUTPUT.png
 │   ├── Q5_OUTPUT.png
 │   └── main.py
-└── ASSIGNMENT 3/
+├── ASSIGNMENT 3/
+│   ├── Bonus_Output1.png
+│   ├── Bonus_Output2.png
+│   ├── Bonus_Output3.png
+│   ├── Q1_Output1.png
+│   ├── Q1_Output2.png
+│   ├── Q1_Output3.png
+│   ├── Q2_Output1.png
+│   ├── Q2_Output2.png
+│   ├── Q2_Output3.png
+│   ├── Q2_Output4.png
+│   ├── Q3_Output1.png
+│   ├── Q3_Output2.png
+│   ├── Q3_Output3.png
+│   ├── Q3_Output4.png
+│   ├── Q4_Output1.png
+│   ├── Q4_Output2.png
+│   ├── Q4_Output3.png
+│   ├── Q4_Output4.png
+│   ├── Q4_Output5.png
+│   ├── Q4_Output6.png
+│   ├── Q5_Output.png
+│   └── main.py
+└── ASSIGNMENT 4/
     ├── Bonus_Output1.png
     ├── Bonus_Output2.png
     ├── Bonus_Output3.png
     ├── Q1_Output1.png
     ├── Q1_Output2.png
-    ├── Q1_Output3.png
-    ├── Q2_Output1.png
-    ├── Q2_Output2.png
-    ├── Q2_Output3.png
-    ├── Q2_Output4.png
+    ├── Q2_Output.png
     ├── Q3_Output1.png
     ├── Q3_Output2.png
-    ├── Q3_Output3.png
-    ├── Q3_Output4.png
     ├── Q4_Output1.png
     ├── Q4_Output2.png
-    ├── Q4_Output3.png
-    ├── Q4_Output4.png
-    ├── Q4_Output5.png
-    ├── Q4_Output6.png
-    ├── Q5_Output.png
+    ├── Q5_Output1.png
+    ├── Q5_Output2.png
+    ├── Q5_Output3.png
+    ├── Q5_Output4.png
+    ├── Q5_Output5.png
+    ├── Q6_Output1.png
+    ├── Q6_Output2.png
+    ├── Q6_Output3.png
+    ├── Q6_Output4.png
+    ├── Q6_Output5.png
+    ├── Q6_Output6.png
     └── main.py
 ```
 
@@ -124,36 +148,31 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🧪 Day 1 — Test URLs
-```
-GET http://127.0.0.1:8000/products
-GET http://127.0.0.1:8000/products/category/Electronics
-GET http://127.0.0.1:8000/products/instock
-GET http://127.0.0.1:8000/store/summary
-GET http://127.0.0.1:8000/products/search/mouse
-GET http://127.0.0.1:8000/products/deals
-```
+## 📌 Day 5 — Cart System Endpoints
 
-## 🧪 Day 2 — Test URLs
-```
-GET  http://127.0.0.1:8000/products/filter?min_price=400
-GET  http://127.0.0.1:8000/products/filter?min_price=100&max_price=600
-GET  http://127.0.0.1:8000/products/1/price
-GET  http://127.0.0.1:8000/products/summary
-POST http://127.0.0.1:8000/feedback        → test in Swagger UI
-POST http://127.0.0.1:8000/orders/bulk     → test in Swagger UI
-POST http://127.0.0.1:8000/orders          → test in Swagger UI
-GET  http://127.0.0.1:8000/orders/1
-PATCH http://127.0.0.1:8000/orders/1/confirm
-```
+| # | Method | Endpoint | Description |
+|---|--------|----------|-------------|
+| Q1 | POST | `/cart/add?product_id=1&quantity=2` | Add item to cart |
+| Q2 | GET | `/cart` | View cart with grand total |
+| Q3 | POST | `/cart/add?product_id=3` | Out of stock → 400 error |
+| Q4 | POST | `/cart/add?product_id=1&quantity=1` | Update existing cart item quantity |
+| Q5 | DELETE | `/cart/{product_id}` | Remove item from cart |
+| Q5 | POST | `/cart/checkout` | Checkout and place orders |
+| Q6 | All | Full flow | 2 customers complete cart flow |
+| ⭐ | POST | `/cart/checkout` | Empty cart → 400 Bad Request |
 
-## 🧪 Day 4 — Test URLs
+---
+
+## 🧪 Day 5 — Test URLs
 ```
-POST   http://127.0.0.1:8000/products           → test in Swagger UI
-PUT    http://127.0.0.1:8000/products/{id}      → test in Swagger UI
-DELETE http://127.0.0.1:8000/products/{id}      → test in Swagger UI
-GET    http://127.0.0.1:8000/products/audit
-PUT    http://127.0.0.1:8000/products/discount?category=Electronics&discount_percent=10
+POST  http://127.0.0.1:8000/cart/add?product_id=1&quantity=2
+POST  http://127.0.0.1:8000/cart/add?product_id=2&quantity=1
+GET   http://127.0.0.1:8000/cart
+POST  http://127.0.0.1:8000/cart/add?product_id=3   → 400 out of stock
+POST  http://127.0.0.1:8000/cart/add?product_id=99  → 404 not found
+DELETE http://127.0.0.1:8000/cart/2
+POST  http://127.0.0.1:8000/cart/checkout
+GET   http://127.0.0.1:8000/orders
 ```
 
 ---
@@ -163,9 +182,9 @@ PUT    http://127.0.0.1:8000/products/discount?category=Electronics&discount_per
 | ID | Name | Price | Category | In Stock |
 |----|------|-------|----------|----------|
 | 1 | Wireless Mouse | ₹499 | Electronics | ✅ |
-| 2 | USB-C Hub | ₹999 | Electronics | ✅ |
-| 3 | Notebook | ₹149 | Stationery | ✅ |
-| 4 | Pen Set | ₹49 | Stationery | ❌ |
+| 2 | Notebook | ₹99 | Stationery | ✅ |
+| 3 | USB Hub | ₹799 | Electronics | ❌ |
+| 4 | Pen Set | ₹49 | Stationery | ✅ |
 
 ---
 
@@ -198,6 +217,15 @@ PUT    http://127.0.0.1:8000/products/discount?category=Electronics&discount_per
 - [x] Q5 — `GET /products/audit` returns correct inventory summary
 - [x] ⭐ Bonus — `PUT /products/discount` reduces all Electronics prices by 10%
 
+## ✅ Day 5 Submission Checklist
+- [x] Q1 — Wireless Mouse (subtotal 998) and Notebook (subtotal 99) added to cart
+- [x] Q2 — `GET /cart` shows item_count: 2 and grand_total: 1097
+- [x] Q3 — Adding USB Hub (id=3) returns 400, Adding id=99 returns 404
+- [x] Q4 — Adding Mouse again shows "Cart updated", qty=3, grand_total=1596
+- [x] Q5 — Notebook removed, checkout works, cart empty after, order in GET /orders
+- [x] Q6 — 2-customer flow: 3 total orders in GET /orders at the end
+- [x] ⭐ Bonus — `POST /cart/checkout` on empty cart returns 400, no order created
+
 ---
 
-*Built for FastAPI Internship Training · Day 1, Day 2 & Day 4 Assignments 🚀*
+*Built for FastAPI Internship Training · Day 1, Day 2, Day 4 & Day 5 Assignments 🚀*
