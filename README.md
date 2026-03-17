@@ -1,14 +1,13 @@
 # 🛒 FastAPI E-Commerce Store API
 ### Feb Internship 2026 — FastAPI Assignment
 
----
 
 ## 👩‍💻 Intern Details
 | Field | Details |
 |-------|---------|
 | **Intern ID** | IN226066402 |
 | **Name** | Sannidhya |
-| **Assignment** | FastAPI — Day 1, Day 2, Day 4 & Day 5 Practice Tasks |
+| **Assignment** | FastAPI — Day 1, Day 2, Day 4, Day 5 & Day 6 Practice Tasks |
 
 ---
 
@@ -56,28 +55,56 @@ IN226066402_FASTAPI/
 │   ├── Q4_Output6.png
 │   ├── Q5_Output.png
 │   └── main.py
-└── ASSIGNMENT 4/
+├── ASSIGNMENT 4/
+│   ├── Bonus_Output1.png
+│   ├── Bonus_Output2.png
+│   ├── Bonus_Output3.png
+│   ├── Q1_Output1.png
+│   ├── Q1_Output2.png
+│   ├── Q2_Output.png
+│   ├── Q3_Output1.png
+│   ├── Q3_Output2.png
+│   ├── Q4_Output1.png
+│   ├── Q4_Output2.png
+│   ├── Q5_Output1.png
+│   ├── Q5_Output2.png
+│   ├── Q5_Output3.png
+│   ├── Q5_Output4.png
+│   ├── Q5_Output5.png
+│   ├── Q6_Output1.png
+│   ├── Q6_Output2.png
+│   ├── Q6_Output3.png
+│   ├── Q6_Output4.png
+│   ├── Q6_Output5.png
+│   ├── Q6_Output6.png
+│   └── main.py
+└── ASSIGNMENT 5/
     ├── Bonus_Output1.png
     ├── Bonus_Output2.png
     ├── Bonus_Output3.png
+    ├── Bonus_Output4.png
+    ├── Bonus_Output5.png
+    ├── Bonus_Output6.png
     ├── Q1_Output1.png
     ├── Q1_Output2.png
-    ├── Q2_Output.png
+    ├── Q1_Output3.png
+    ├── Q1_Output4.png
+    ├── Q2_Output1.png
+    ├── Q2_Output2.png
+    ├── Q2_Output3.png
+    ├── Q2_Output4.png
+    ├── Q2_Output5.png
     ├── Q3_Output1.png
     ├── Q3_Output2.png
+    ├── Q3_Output3.png
+    ├── Q3_Output4.png
+    ├── Q3_Output5.png
     ├── Q4_Output1.png
     ├── Q4_Output2.png
-    ├── Q5_Output1.png
-    ├── Q5_Output2.png
-    ├── Q5_Output3.png
-    ├── Q5_Output4.png
-    ├── Q5_Output5.png
+    ├── Q5_Output.png
     ├── Q6_Output1.png
     ├── Q6_Output2.png
     ├── Q6_Output3.png
-    ├── Q6_Output4.png
-    ├── Q6_Output5.png
-    ├── Q6_Output6.png
     └── main.py
 ```
 
@@ -115,7 +142,7 @@ http://127.0.0.1:8000/docs
 | Q2 | GET | `/products/category/{category_name}` | Filter products by category |
 | Q3 | GET | `/products/instock` | Get only in-stock products |
 | Q4 | GET | `/store/summary` | Get full store overview |
-| Q5 | GET | `/products/search/{keyword}` | Search products by name (case-insensitive) |
+| Q5 | GET | `/products/search/{keyword}` | Search products by name |
 | ⭐ | GET | `/products/deals` | Get cheapest & most expensive product |
 
 ---
@@ -163,28 +190,17 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🧪 Day 5 — Test URLs
-```
-POST  http://127.0.0.1:8000/cart/add?product_id=1&quantity=2
-POST  http://127.0.0.1:8000/cart/add?product_id=2&quantity=1
-GET   http://127.0.0.1:8000/cart
-POST  http://127.0.0.1:8000/cart/add?product_id=3   → 400 out of stock
-POST  http://127.0.0.1:8000/cart/add?product_id=99  → 404 not found
-DELETE http://127.0.0.1:8000/cart/2
-POST  http://127.0.0.1:8000/cart/checkout
-GET   http://127.0.0.1:8000/orders
-```
+## 📌 Day 6 — Search, Sort & Pagination Endpoints
 
----
-
-## 🛍️ Product Data
-
-| ID | Name | Price | Category | In Stock |
-|----|------|-------|----------|----------|
-| 1 | Wireless Mouse | ₹499 | Electronics | ✅ |
-| 2 | Notebook | ₹99 | Stationery | ✅ |
-| 3 | USB Hub | ₹799 | Electronics | ❌ |
-| 4 | Pen Set | ₹49 | Stationery | ✅ |
+| # | Method | Endpoint | Description |
+|---|--------|----------|-------------|
+| Q1 | GET | `/products/search?keyword=mouse` | Case-insensitive product search |
+| Q2 | GET | `/products/sort?sort_by=price&order=asc` | Sort by price or name |
+| Q3 | GET | `/products/page?page=1&limit=2` | Paginate products list |
+| Q4 | GET | `/orders/search?customer_name=rahul` | Search orders by customer name |
+| Q5 | GET | `/products/sort-by-category` | Sort by category then price |
+| Q6 | GET | `/products/browse` | Search + Sort + Paginate in one endpoint |
+| ⭐ | GET | `/orders/page?page=1&limit=3` | Paginate orders list |
 
 ---
 
@@ -226,6 +242,18 @@ GET   http://127.0.0.1:8000/orders
 - [x] Q6 — 2-customer flow: 3 total orders in GET /orders at the end
 - [x] ⭐ Bonus — `POST /cart/checkout` on empty cart returns 400, no order created
 
+## ✅ Day 6 Submission Checklist
+- [x] Q1 — Search "mouse" and "MOUSE" return same result (case-insensitive)
+- [x] Q1 — Search "laptop" returns friendly no-results message
+- [x] Q2 — All 4 sort combinations tested correctly
+- [x] Q2 — sort_by=category returns error message correctly
+- [x] Q3 — Page 1 and Page 2 show different products, Page 3 is empty
+- [x] Q3 — limit=1 shows 4 total_pages correctly
+- [x] Q4 — `GET /orders/search` finds orders by customer name (case-insensitive)
+- [x] Q5 — `GET /products/sort-by-category` shows Electronics first, then Stationery
+- [x] Q6 — `GET /products/browse` works with all params combined
+- [x] ⭐ Bonus — `GET /orders/page` paginates the orders list correctly
+
 ---
 
-*Built for FastAPI Internship Training · Day 1, Day 2, Day 4 & Day 5 Assignments 🚀*
+*Built for FastAPI Internship Training · Day 1, Day 2, Day 4, Day 5 & Day 6 Assignments 🚀*
